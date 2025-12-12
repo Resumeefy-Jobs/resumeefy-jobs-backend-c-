@@ -1,0 +1,16 @@
+# --- Visual Studio & .NET Build Output ---
+.vs/
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+*.user
+*.suo
+
+# --- Security (Configuration) ---
+appsettings.json
+appsettings.Development.json
+
+# --- Others ---
+.DS_Store
+Thumbs.db
