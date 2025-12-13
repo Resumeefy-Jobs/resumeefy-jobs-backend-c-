@@ -1,17 +1,18 @@
 using Hangfire;
 using Hangfire.PostgreSql;
 using Resumeefy.API.Middlewares;
+using Resumeefy.Application.Features.Auth.Commands.Register;
 using Resumeefy.Infrastructure;
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddInfrastructure(builder.Configuration);
+
+builder.Services.AddMediatR(cfg =>
+	cfg.RegisterServicesFromAssembly(typeof(RegisterUserCommand).Assembly));
 
 builder.Services.AddHangfire(configuration => configuration
 	.SetDataCompatibilityLevel(CompatibilityLevel.Version_180)

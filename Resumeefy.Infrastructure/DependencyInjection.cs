@@ -20,6 +20,8 @@ public static class DependencyInjection
 
 		services.AddScoped<IUserRepository, UserRepository>();
 		services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
+		services.AddTransient<IEmailService, EmailService>();
+		services.AddScoped<IGoogleAuthService, GoogleAuthService>();
 
 		return services;
 	}
