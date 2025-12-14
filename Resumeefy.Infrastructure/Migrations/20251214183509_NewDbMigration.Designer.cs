@@ -12,8 +12,8 @@ using Resumeefy.Infrastructure.Data;
 namespace Resumeefy.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20251211233957_Intial-Create")]
-    partial class IntialCreate
+    [Migration("20251214183509_NewDbMigration")]
+    partial class NewDbMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
