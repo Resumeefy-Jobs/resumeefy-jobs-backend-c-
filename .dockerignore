@@ -21,6 +21,15 @@
 **/obj
 **/secrets.dev.yaml
 **/values.dev.yaml
+**/.dockerignore
+**/.vs
+**/bin
+**/obj
+**/TestResults
+Dockerfile*
+docker-compose*
+*.user
+*.suo
 LICENSE
 README.md
 !**/.gitignore
