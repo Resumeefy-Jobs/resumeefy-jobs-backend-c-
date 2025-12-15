@@ -40,7 +40,7 @@ namespace Resumeefy.Application.Features.Auth.Commands.ForgotPassword
 			byte[] bytes = Encoding.UTF8.GetBytes(payload);
 			string code = WebEncoders.Base64UrlEncode(bytes);
 
-			var port = _configuration["HostingPort"];
+			var port = _configuration["HostingPort"] ?? Environment.GetEnvironmentVariable("HostingPort");
 			string resetUrl = $"http://localhost:{port}/api/auth/reset-password?code={code}";
 
 			string emailBody = $@"

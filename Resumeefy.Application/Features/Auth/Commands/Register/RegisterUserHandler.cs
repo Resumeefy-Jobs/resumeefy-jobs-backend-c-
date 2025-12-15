@@ -56,7 +56,7 @@ public class RegisterUserHandler : IRequestHandler<RegisterUserCommand, BaseResp
 
 		string code = WebEncoders.Base64UrlEncode(bytes);
 
-		var port = _configuration["HostingPort"];
+		var port = _configuration["HostingPort"] ?? Environment.GetEnvironmentVariable("HostingPort");
 
 		string verifyUrl = $"http://localhost:{port}/api/auth/verify-email?code={code}";
 

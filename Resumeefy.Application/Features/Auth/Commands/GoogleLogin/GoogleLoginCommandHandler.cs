@@ -36,21 +36,20 @@ namespace Resumeefy.Application.Features.Auth.Commands.GoogleLogin
 					Email = googleUser.Email,
 					Role = request.Role,
 					IsEmailVerified = true,
-					PasswordHash = "", // No password for OAuth users// Note: You might want to save FirstName/LastName/Picture to Profile here
+					PasswordHash = "",
 				};
 
 				if (request.Role == Core.Enums.UserRole.JobSeeker)
 					user.JobSeekerProfile = new JobSeekerProfile
 					{
 						UserId = user.Id
-					}; // Add Name/Picture here later
+					};
 				else
 					user.CompanyProfile = new CompanyProfile { UserId = user.Id };
 
 				await _userRepository.AddAsync(user);
 			}
 
-			// 4. Generate JWT
 			var token = _jwtTokenGenerator.GenerateToken(user);
 
 			var responseDto = new AuthResponseDto

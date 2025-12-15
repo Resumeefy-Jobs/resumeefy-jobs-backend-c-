@@ -10,6 +10,8 @@ obj/
 # --- Security (Configuration) ---
 appsettings.json
 appsettings.Development.json
+.env
+
 
 # --- Others ---
 .DS_Store

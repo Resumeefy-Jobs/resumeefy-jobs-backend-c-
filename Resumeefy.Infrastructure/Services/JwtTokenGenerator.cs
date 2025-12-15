@@ -19,10 +19,10 @@ public class JwtTokenGenerator : IJwtTokenGenerator
 
 	public string GenerateToken(User user)
 	{
-		var secretKey = _configuration["JwtSettings:Secret"];
-		var issuer = _configuration["JwtSettings:Issuer"];
-		var audience = _configuration["JwtSettings:Audience"];
-		var expiryMinutes = int.Parse(_configuration["JwtSettings:ExpiryMinutes"]!);
+		var secretKey = _configuration["JwtSettings:Secret"] ?? Environment.GetEnvironmentVariable("JwtSettings__Secret");
+		var issuer = _configuration["JwtSettings:Issuer"] ?? Environment.GetEnvironmentVariable("JwtSettings__Issuer");
+		var audience = _configuration["JwtSettings:Audience"] ?? Environment.GetEnvironmentVariable("JwtSettings__Audience");
+		var expiryMinutes = int.Parse(_configuration["JwtSettings:ExpiryMinutes"] ?? Environment.GetEnvironmentVariable("JwtSettings__ExpiryMinutes")!);
 
 		var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey!));
 		var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);

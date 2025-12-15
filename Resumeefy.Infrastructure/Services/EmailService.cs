@@ -10,7 +10,7 @@ namespace Resumeefy.Infrastructure.Services;
 public class EmailService : IEmailService
 {
 	private readonly IConfiguration _configuration;
-	private readonly ILogger<EmailService> _logger; // Add Logger
+	private readonly ILogger<EmailService> _logger;
 
 	public EmailService(IConfiguration configuration, ILogger<EmailService> logger)
 	{
@@ -25,7 +25,8 @@ public class EmailService : IEmailService
 			_logger.LogInformation($"Attempting to send email to {to}...");
 
 			var email = new MimeMessage();
-			email.From.Add(MailboxAddress.Parse(_configuration["EmailSettings:From"]));
+			var fromAddress = _configuration["EmailSettings:From"] ?? Environment.GetEnvironmentVariable("EmailSettings__From");
+			email.From.Add(MailboxAddress.Parse(fromAddress));
 			email.To.Add(MailboxAddress.Parse(to));
 			email.Subject = subject;
 
@@ -33,16 +34,19 @@ public class EmailService : IEmailService
 			email.Body = builder.ToMessageBody();
 
 			using var smtp = new SmtpClient();
-
+			var emailHost = _configuration["EmailSettings:Host"] ?? Environment.GetEnvironmentVariable("EmailSettings__Host");
+			var emailPort = _configuration["EmailSettings:Port"] ?? Environment.GetEnvironmentVariable("EmailSettings__Port");
 			await smtp.ConnectAsync(
-				_configuration["EmailSettings:Host"],
-				int.Parse(_configuration["EmailSettings:Port"]!),
+				emailHost,
+				int.Parse(emailPort!),
 				SecureSocketOptions.StartTls
 			);
 
+			var emailUser = _configuration["EmailSettings:User"] ?? Environment.GetEnvironmentVariable("EmailSettings__User");
+			var emailPassword = _configuration["EmailSettings:Password"] ?? Environment.GetEnvironmentVariable("EmailSettings__Password");
 			await smtp.AuthenticateAsync(
-				_configuration["EmailSettings:User"],
-				_configuration["EmailSettings:Password"]
+				emailUser,
+				emailPassword
 			);
 
 			await smtp.SendAsync(email);

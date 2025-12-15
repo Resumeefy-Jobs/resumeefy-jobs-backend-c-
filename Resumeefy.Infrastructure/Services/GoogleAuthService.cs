@@ -19,9 +19,10 @@ namespace Resumeefy.Infrastructure.Services
 		{
 			try
 			{
+				var googleClientid = _configuration["Google:ClientId"] ?? Environment.GetEnvironmentVariable("Google__ClientId");
 				var settings = new GoogleJsonWebSignature.ValidationSettings()
 				{
-					Audience = new List<string> { _configuration["Google:ClientId"]! }
+					Audience = new List<string> { googleClientid! }
 				};
 
 				var payload = await GoogleJsonWebSignature.ValidateAsync(idToken, settings);
