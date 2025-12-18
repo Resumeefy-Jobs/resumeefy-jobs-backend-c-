@@ -1,7 +1,5 @@
 # --- Visual Studio & .NET Build Output ---
 .vs/
-bin/
-obj/
 [Dd]ebug/
 [Rr]elease/
 *.user
