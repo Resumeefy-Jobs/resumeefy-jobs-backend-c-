@@ -7,21 +7,25 @@ WORKDIR /app
 EXPOSE 8080
 EXPOSE 8081
 
-
 # This stage is used to build the service project
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["Resumeefy.API/Resumeefy.API.csproj", "Resumeefy.API/"]
-COPY ["Resumeefy.Application/Resumeefy.Application.csproj", "Resumeefy.Application/"]
-COPY ["Resumeefy.Core/Resumeefy.Core.csproj", "Resumeefy.Core/"]
-COPY ["Resumeefy.Infrastructure/Resumeefy.Infrastructure.csproj", "Resumeefy.Infrastructure/"]
-RUN dotnet restore "./Resumeefy.API/Resumeefy.API.csproj"
+
+# 1. Copy ALL source code first (including the "bad" obj folders)
 COPY . .
-RUN find . -name "bin" -type d -exec rm -rf {} + && \
-    find . -name "obj" -type d -exec rm -rf {} +
+
+# 2. NUCLEAR CLEANUP: Force delete all local 'bin' and 'obj' folders.
+#    This guarantees we start fresh and avoid "Duplicate Attribute" errors.
+RUN find . -type d \( -name "bin" -o -name "obj" \) -exec rm -rf {} +
+
+# 3. Restore dependencies (Now safe because the folders are clean)
+#    We point directly to the API project, which will restore all referenced projects automatically.
 WORKDIR "/src/Resumeefy.API"
-RUN dotnet build "./Resumeefy.API.csproj" -c Release -o /app/build
+RUN dotnet restore "./Resumeefy.API.csproj"
+
+# 4. Build the project
+RUN dotnet build "./Resumeefy.API.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # This stage is used to publish the service project to be copied to the final stage
 FROM build AS publish
