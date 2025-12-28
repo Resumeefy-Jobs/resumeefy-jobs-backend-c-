@@ -18,8 +18,10 @@ COPY ["Resumeefy.Core/Resumeefy.Core.csproj", "Resumeefy.Core/"]
 COPY ["Resumeefy.Infrastructure/Resumeefy.Infrastructure.csproj", "Resumeefy.Infrastructure/"]
 RUN dotnet restore "./Resumeefy.API/Resumeefy.API.csproj"
 COPY . .
+RUN find . -name "bin" -type d -exec rm -rf {} + && \
+    find . -name "obj" -type d -exec rm -rf {} +
 WORKDIR "/src/Resumeefy.API"
-RUN dotnet build "./Resumeefy.API.csproj" -c $BUILD_CONFIGURATION -o /app/build
+RUN dotnet build "./Resumeefy.API.csproj" -c Release -o /app/build
 
 # This stage is used to publish the service project to be copied to the final stage
 FROM build AS publish
