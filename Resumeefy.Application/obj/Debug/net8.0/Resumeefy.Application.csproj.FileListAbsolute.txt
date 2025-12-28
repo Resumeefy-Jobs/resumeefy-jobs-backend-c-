@@ -1,0 +1,16 @@
+C:\Users\ORIOLOWO\source\repos\resumeefy-jobs-backend\Resumeefy.Application\bin\Debug\net8.0\Resumeefy.Application.deps.json
+C:\Users\ORIOLOWO\source\repos\resumeefy-jobs-backend\Resumeefy.Application\bin\Debug\net8.0\Resumeefy.Application.dll
+C:\Users\ORIOLOWO\source\repos\resumeefy-jobs-backend\Resumeefy.Application\bin\Debug\net8.0\Resumeefy.Application.pdb
+C:\Users\ORIOLOWO\source\repos\resumeefy-jobs-backend\Resumeefy.Application\bin\Debug\net8.0\Resumeefy.Core.dll
+C:\Users\ORIOLOWO\source\repos\resumeefy-jobs-backend\Resumeefy.Application\bin\Debug\net8.0\Resumeefy.Core.pdb
+C:\Users\ORIOLOWO\source\repos\resumeefy-jobs-backend\Resumeefy.Application\obj\Debug\net8.0\Resumeefy.Application.csproj.AssemblyReference.cache
+C:\Users\ORIOLOWO\source\repos\resumeefy-jobs-backend\Resumeefy.Application\obj\Debug\net8.0\Resumeefy.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ORIOLOWO\source\repos\resumeefy-jobs-backend\Resumeefy.Application\obj\Debug\net8.0\Resumeefy.Application.AssemblyInfoInputs.cache
+C:\Users\ORIOLOWO\source\repos\resumeefy-jobs-backend\Resumeefy.Application\obj\Debug\net8.0\Resumeefy.Application.AssemblyInfo.cs
+C:\Users\ORIOLOWO\source\repos\resumeefy-jobs-backend\Resumeefy.Application\obj\Debug\net8.0\Resumeefy.Application.csproj.CoreCompileInputs.cache
+C:\Users\ORIOLOWO\source\repos\resumeefy-jobs-backend\Resumeefy.Application\obj\Debug\net8.0\Resumeef.44628DEC.Up2Date
+C:\Users\ORIOLOWO\source\repos\resumeefy-jobs-backend\Resumeefy.Application\obj\Debug\net8.0\Resumeefy.Application.dll
+C:\Users\ORIOLOWO\source\repos\resumeefy-jobs-backend\Resumeefy.Application\obj\Debug\net8.0\refint\Resumeefy.Application.dll
+C:\Users\ORIOLOWO\source\repos\resumeefy-jobs-backend\Resumeefy.Application\obj\Debug\net8.0\Resumeefy.Application.pdb
+C:\Users\ORIOLOWO\source\repos\resumeefy-jobs-backend\Resumeefy.Application\obj\Debug\net8.0\ref\Resumeefy.Application.dll
+C:\Users\ORIOLOWO\source\repos\resumeefy-jobs-backend\Resumeefy.Application\obj\Debug\net8.0\Resumeefy.Application.sourcelink.json

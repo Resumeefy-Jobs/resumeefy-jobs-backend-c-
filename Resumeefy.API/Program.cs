@@ -49,7 +49,7 @@ builder.Services.AddHangfire(configuration => configuration
 	.UseRecommendedSerializerSettings()
 	.UsePostgreSqlStorage(options =>
 	{
-		options.UseNpgsqlConnection(builder.Configuration.GetConnectionString(connString));
+		options.UseNpgsqlConnection(connString);
 	}));
 
 builder.Services.AddHangfireServer();

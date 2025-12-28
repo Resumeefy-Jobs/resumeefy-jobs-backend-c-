@@ -1,0 +1,12 @@
+C:\Users\ORIOLOWO\source\repos\resumeefy-jobs-backend\Resumeefy.Core\bin\Debug\net8.0\Resumeefy.Core.deps.json
+C:\Users\ORIOLOWO\source\repos\resumeefy-jobs-backend\Resumeefy.Core\bin\Debug\net8.0\Resumeefy.Core.dll
+C:\Users\ORIOLOWO\source\repos\resumeefy-jobs-backend\Resumeefy.Core\bin\Debug\net8.0\Resumeefy.Core.pdb
+C:\Users\ORIOLOWO\source\repos\resumeefy-jobs-backend\Resumeefy.Core\obj\Debug\net8.0\Resumeefy.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ORIOLOWO\source\repos\resumeefy-jobs-backend\Resumeefy.Core\obj\Debug\net8.0\Resumeefy.Core.AssemblyInfoInputs.cache
+C:\Users\ORIOLOWO\source\repos\resumeefy-jobs-backend\Resumeefy.Core\obj\Debug\net8.0\Resumeefy.Core.AssemblyInfo.cs
+C:\Users\ORIOLOWO\source\repos\resumeefy-jobs-backend\Resumeefy.Core\obj\Debug\net8.0\Resumeefy.Core.csproj.CoreCompileInputs.cache
+C:\Users\ORIOLOWO\source\repos\resumeefy-jobs-backend\Resumeefy.Core\obj\Debug\net8.0\Resumeefy.Core.dll
+C:\Users\ORIOLOWO\source\repos\resumeefy-jobs-backend\Resumeefy.Core\obj\Debug\net8.0\refint\Resumeefy.Core.dll
+C:\Users\ORIOLOWO\source\repos\resumeefy-jobs-backend\Resumeefy.Core\obj\Debug\net8.0\Resumeefy.Core.pdb
+C:\Users\ORIOLOWO\source\repos\resumeefy-jobs-backend\Resumeefy.Core\obj\Debug\net8.0\ref\Resumeefy.Core.dll
+C:\Users\ORIOLOWO\source\repos\resumeefy-jobs-backend\Resumeefy.Core\obj\Debug\net8.0\Resumeefy.Core.sourcelink.json
