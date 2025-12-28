@@ -1,0 +1,20 @@
+﻿# Exclude build output (The most important part for your error)
+**/bin/
+**/obj/
+
+# Exclude IDE files
+.vs/
+.vscode/
+*.user
+*.suo
+
+# Exclude Git files
+.git/
+.gitignore
+
+# Exclude Docker files
+Dockerfile
+.dockerignore
+
+# Exclude Environment variables
+.env

@@ -1,3 +1,6 @@
+[Bb]in/
+[Oo]bj/
+
 # --- Visual Studio & .NET Build Output ---
 .vs/
 *.user
@@ -7,7 +10,6 @@
 appsettings.json
 appsettings.Development.json
 .env
-
 
 # --- Others ---
 .DS_Store
