@@ -1,38 +1,39 @@
-# See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
-
-# This stage is used when running from VS in fast mode (Default for Debug configuration)
+# See https://aka.ms/customizecontainer to learn how to customize your debug container
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 USER $APP_UID
 WORKDIR /app
 EXPOSE 8080
 EXPOSE 8081
 
-# This stage is used to build the service project
+# --- BUILD STAGE ---
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 
-# 1. Copy ALL source code first (including the "bad" obj folders)
+# 1. COPY EVERYTHING FIRST
+# We copy all source code (and the junk obj folders) immediately.
 COPY . .
 
-# 2. NUCLEAR CLEANUP: Force delete all local 'bin' and 'obj' folders.
-#    This guarantees we start fresh and avoid "Duplicate Attribute" errors.
+# 2. NUCLEAR CLEANUP
+# We delete any 'bin' or 'obj' folders that came from your computer.
+# This ensures the next steps start with a 100% clean slate.
 RUN find . -type d \( -name "bin" -o -name "obj" \) -exec rm -rf {} +
 
-# 3. Restore dependencies (Now safe because the folders are clean)
-#    We point directly to the API project, which will restore all referenced projects automatically.
+# 3. RESTORE
+# Now that the folders are clean, we restore the dependencies safely.
 WORKDIR "/src/Resumeefy.API"
 RUN dotnet restore "./Resumeefy.API.csproj"
 
-# 4. Build the project
+# 4. BUILD
+# Finally, we build the project using the fresh restore.
 RUN dotnet build "./Resumeefy.API.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
-# This stage is used to publish the service project to be copied to the final stage
+# --- PUBLISH STAGE ---
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
 RUN dotnet publish "./Resumeefy.API.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
-# This stage is used in production or when running from VS in regular mode (Default when not using the Debug configuration)
+# --- FINAL STAGE ---
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
