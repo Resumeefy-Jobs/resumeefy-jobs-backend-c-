@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Resumeefy.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a8e804372dfbe37726f9d62b5cfbea678acb5a1b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+960e03fea6dc8c3e41d739a6556baec49566166f")]
 [assembly: System.Reflection.AssemblyProductAttribute("Resumeefy.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Resumeefy.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
