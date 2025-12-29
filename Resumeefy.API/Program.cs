@@ -54,6 +54,14 @@ builder.Services.AddHangfire(configuration => configuration
 
 builder.Services.AddHangfireServer();
 
+builder.WebHost.ConfigureKestrel(options =>
+{
+	options.ListenAnyIP(
+		int.Parse(Environment.GetEnvironmentVariable("PORT") ?? "8080")
+	);
+});
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
