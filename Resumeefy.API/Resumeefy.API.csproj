@@ -21,8 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Resumeefy.Application\Resumeefy.Application.csproj" />
-    <ProjectReference Include="..\Resumeefy.Infrastructure\Resumeefy.Infrastructure.csproj" />
+	  <ProjectReference Include="..\Resumeefy.Application\Resumeefy.Application.csproj" />
+	  <ProjectReference Include="..\Resumeefy.Infrastructure\Resumeefy.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
